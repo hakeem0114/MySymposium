@@ -3,12 +3,12 @@
 
 import { express} from "express"; //Manages RESTful APIs
 import bodyParser, { BodyParser } from "body-parser"; //
-import { Mongoose } from "mongoose";
+import { mongoose } from "mongoose";
 import {cors} from "cors";
 import { dotenv } from "dotenv";
 import multer, { Multer } from "multer";
 import {helmet} from "helmet";
-import { Morgan } from "morgan";
+import { morgan } from "morgan";
 import { path } from "path";
 import { fileURLToPath } from "url"; //Allows to properly configure paths when creating directories
 
@@ -44,3 +44,14 @@ const storage  = multer.diskStorage({
     }
 });
 const upload = multer({storage})
+
+/***MONGOOSE SETUP****/
+const PORT = process.env.PORT || 6001; //6001 as a back-up
+mongoose.connect(process.env.MONGO_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(()=>{
+        app.listen(PORT, ()=>console.log(`Server Port = ${PORT}`))
+    })
+    .catch((error)=> console.log(`${error} did not connect`));
