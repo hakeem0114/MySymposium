@@ -69,6 +69,10 @@ const storage  = multer.diskStorage({
 const upload = multer({storage})
 
 
+/***ROUTES WITH FILES****/
+app.post("/auth/register", upload.single("picture"), register)
+
+
 /***MONGOOSE SETUP****/
 const PORT = process.env.PORT || 6001; //6001 as a back-up for backend 3001 port
 
