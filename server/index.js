@@ -1,6 +1,6 @@
 /*
-NB: "type": "module" in package.json so you can use 
-    import { } from "" statement instead of  (LIKE IN REACT.js)
+NB: "type": "module" in package.json so I can use 
+    import { } from "" statement (LIKE IN REACT.js), instead of  
     const {}= require('')
 */
 
@@ -12,7 +12,8 @@ import  dotenv  from "dotenv"; //Hide secret keys
 import multer from "multer"; //Local file upload
 import helmet from "helmet"; //Request safety
 import morgan from "morgan"; //http request logger
-
+import {register} from './controllers/authController.js'
+import authRoutes from './routes/authRoutes.js'
 
 //Paths for "type": "module"
 //Allows to properly configure paths when creating directories
@@ -42,7 +43,7 @@ const app  = express()
         extended: true 
     }))
 
-    //Fix req.body error body parser error
+    //Fix req.body error body parser error like in Smoothie Bar practice project
     app.use(bodyParser.urlencoded({
         limit:"30mb",
         extended:true
@@ -57,7 +58,7 @@ const app  = express()
 
 
 
-/*******FILE STORAGE********/
+/*******LOCAL FILE STORAGE********/
 const storage  = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, "public/assets")
@@ -69,8 +70,15 @@ const storage  = multer.diskStorage({
 const upload = multer({storage})
 
 
-/***ROUTES WITH FILES****/
-// app.post("/auth/register", upload.single("picture"), register)
+/***ROUTES FOR LOCAL FILE UPLOAD****/
+//When user wants to register, open view: auth/register (.ejs or REACT)
+//run middleware: upload.single("picture") before it runs register controller
+app.post("/auth/register", upload.single("picture"), register)
+
+/****MAIN ROUTES****/
+app.use('/auth', authRoutes)  //domain name for authRoutes will have a /auth prefix
+
+
 
 
 /***MONGOOSE SETUP****/
