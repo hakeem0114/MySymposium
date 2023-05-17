@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt'
+import  dotenv  from "dotenv"; 
 import jwt  from 'jsonwebtoken'
 import User from '../models/User.js'
 
@@ -50,21 +51,39 @@ export const register = async (req, res)=>{
     }
     catch(err){
         console.log(err)
-        res.status(500).json(err)
+        res.status(500).json({error: err.message})
     }
 }
 
 /****LOG IN USER***/
 export const login =  async(req, res)=>{
-    const {
-        email,
-        password
-    }= req.body
-
     try{
+        const {
+            email,
+            password
+        }= req.body
+
+        //Get user model with its email in dB
+        const user = await User.findOne({email: email}) //since prop are the same, can use {email}
+        if(!user) return res.status(400).json({msg: "Invalid User"})
+
+
+        //Check if password matches database using bcrypt
+        const isMatch = await bcrypt.compare(password, user.password)
+        if(!isMatch)return res.status(400).json({msg: "Invalid Password"})
+
+        
+        //Create JWT to send cookie to browser after confirming user login
+        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET)
+
+        //Delete password so its not sent to client. even with httpsOnly option (better to be safe)
+        delete user.password
+
+        //Send response to client (GET-sucess)
+        res.status(200).json({token, user})
 
     }
     catch(err){
-        
+        res.status(500).json({error: err.message})
     }
 }
