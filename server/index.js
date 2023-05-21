@@ -33,6 +33,13 @@ import { verifyToken } from "./middleware/authMiddleware.js";
 import  path  from "path"; //in-built node.js path
 import { fileURLToPath } from 'url';
 
+//Import Models
+import User from "./models/User.js";
+import Post from "./models/Post.js";
+
+//User Data Imports
+import { users, posts } from "./data/fakeData.js";
+
 
 /*****EXPRESS MIDDLEWARE CONFIGURATIONS******/
 
@@ -108,5 +115,10 @@ mongoose.connect(process.env.MONGO_URL,{
         app.listen(PORT)
         console.log('Connected to MongoDB')
         console.log(`Listening on PORT ${PORT}`)
+
+        //Push to database once & comments it out. 
+        /**Connect to firebase later**/
+        // User.insertMany(users)
+        // Post.insertMany(posts)
     })
     .catch((err)=> console.log(`${err} did not connect to MongoDB`));

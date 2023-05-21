@@ -72,13 +72,11 @@ export const likePost = async (req, res)=>{
             post.likes.set(userId, true)
         }
 
+        //Update specific post
         const updatedPost = await Post.findByIdAndUpdate(
-            id, {   
-                likes: post.likes
-                },{
-                    new:true
-                 }
-
+            id, 
+            {likes: post.likes},
+            {new:true}
         )
 
         //Update client after liking post
