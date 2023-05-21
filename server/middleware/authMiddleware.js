@@ -1,3 +1,6 @@
+//Handle user authorization 
+    //Hit API endpoints for verified users
+
 import jwt  from 'jsonwebtoken'
 import  dotenv  from "dotenv"; 
 
