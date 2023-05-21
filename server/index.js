@@ -4,6 +4,7 @@ NB: "type": "module" in package.json so I can use
     const {}= require('')
 */
 
+//Setup imports
 import express from "express"; //Manages routes
 import bodyParser from "body-parser"; //Process req body
 import  mongoose  from "mongoose"; //Document object model library for MongoDB
@@ -12,11 +13,23 @@ import  dotenv  from "dotenv"; //Hide secret keys
 import multer from "multer"; //Local file upload
 import helmet from "helmet"; //Request safety
 import morgan from "morgan"; //http request logger
-import {register} from './controllers/authController.js'
-import authRoutes from './routes/authRoutes.js'
 
-//Paths for "type": "module"
-//Allows to properly configure paths when creating directories
+//Controller imports
+import {register} from './controllers/authController.js'
+import {createPost} from './controllers/postController.js'
+
+//Route Imports
+import authRoutes from './routes/authRoutes.js'
+import userRoutes from './routes/authUsers.js'
+import postRoutes from './routes/postRoutes.js'
+
+//Middleware Imports
+import { verifyToken } from "./middleware/authMiddleware.js";
+
+
+//Path Imports
+    /*Paths for "type": "module"
+    Allows to properly configure paths when creating directories */
 import  path  from "path"; //in-built node.js path
 import { fileURLToPath } from 'url';
 
@@ -74,11 +87,13 @@ const upload = multer({storage})
 //When user wants to register, open view: auth/register (.ejs or REACT)
 //run middleware: upload.single("picture") before it runs register controller
 app.post("/auth/register", upload.single("picture"), register)
+app.post("/posts", verifyToken, upload.single('picture'), createPost )
+
 
 /****MAIN ROUTES****/
 app.use('/auth', authRoutes)  //domain name for authRoutes will have a /auth prefix
-
-
+app.use('/users', userRoutes)
+app.use('/posts', postRoutes) //Works with route w/ file since user need to upload image on post
 
 
 /***MONGOOSE SETUP****/
