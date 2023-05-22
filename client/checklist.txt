@@ -1,9 +1,14 @@
 1. Started client 
 **Setup**
 REDUX: React state management tool
-Redux toolkit: Redux wrapper to make it easier to implement
+Redux toolkit: Redux wrapper to make it easier to implement (create react app for react states)
+https://redux-toolkit.js.org/introduction/getting-started
+
 Redux Persist: Selectively store the state into local storage 
     Save user & token info in to the local storage so, when user closes the tab & re-opens the tab, they still have their JWTs
+https://github.com/rt2zz/redux-persist
+
+
 React Dropzone: Handles file upload & handling from client to server
 Dotenv: Handle environment variables
 Formik: Form handling
