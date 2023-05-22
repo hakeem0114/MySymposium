@@ -42,7 +42,7 @@ const persistedReducer = persistReducer(persistConfig, authReducer)
 
 //Persistor's store
 const store = configureStore({
-  reducer: persistReducer, 
+  reducer: persistedReducer, 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck:{

@@ -18,6 +18,12 @@ Emotion: Helps write css inside react with a custom lint
     https://emotion.sh/docs/introduction
 Material UI/ Motion: Expressive react transitions. Might user Framer motion for animations later
 https://mui.com/material-ui/transitions/
+a. principles of motion in UI design 
+https://m2.material.io/design/motion/understanding-motion.html#principles
+b. https://github.com/mui/material-ui/tree/master/examples/material-via-cdn
+https://github.com/mui/material-ui/tree/master/examples/material-vite/src
+template to create themes. 
+c. CssBaseline for CSS Reset. Resets Css & reapplies styles to make it consistent across all browsers
 
 jsconfig.js: To make src folder the base directory when importing. Helps intellisense
 https://stackoverflow.com/questions/68675994/what-is-jsconfig-json

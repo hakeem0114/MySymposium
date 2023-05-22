@@ -1,7 +1,9 @@
+import React from "react"
+
 const HomePage = ()=>{
     return(
         <div>
-            homePage
+            <h1>HOMEPAGE</h1>
         </div>
     )
 }
