@@ -16,7 +16,8 @@ Yup: Validation
 React Router: Handling page routes in React
 Emotion: Helps write css inside react with a custom lint
     https://emotion.sh/docs/introduction
-Material UI/ Motion: Expressive react transitions. Might user Framer motion for animations later
+Material UI/ Motion: Expressive react styles & animations (Completely simplifies Css)
+All-in-one CSS for React
 https://mui.com/material-ui/transitions/
 a. principles of motion in UI design 
 https://m2.material.io/design/motion/understanding-motion.html#principles
@@ -30,4 +31,11 @@ https://stackoverflow.com/questions/68675994/what-is-jsconfig-json
 
 
 2. Folder Layout using react best practices
-3. 
+3. Use styled-components instead of master CSS like my portfolio
+https://styled-components.com/
+https://dev.to/stephencweiss/reusing-css-with-styled-components-3okn
+***Turns out MUI has the same thing,use MUI instead of style-components
+https://mui.com/system/styled/  ******
+
+
+
