@@ -23,14 +23,15 @@ function App() {
   return (
     <div className='app'>
         <BrowserRouter>
-            <ThemeProvider theme={theme}/>
-            <CssBaseline/>
-            
-            <Routes>
-                  <Route path="/MySymposium" element={ <LoginPage/> } />
-                  <Route path="/MySymposium/home" element={ <HomePage/> } />
-                  <Route path="/MySymposium/profile/:userId" element={ <ProfilePage/> } />
-            </Routes>
+            <ThemeProvider theme={theme}>
+              <CssBaseline/>
+              
+              <Routes>
+                    <Route path="/MySymposium" element={ <LoginPage/> } />
+                    <Route path="/MySymposium/home" element={ <HomePage/> } />
+                    <Route path="/MySymposium/profile/:userId" element={ <ProfilePage/> } />
+              </Routes>
+            </ThemeProvider>
         </BrowserRouter>
     </div>
   )
