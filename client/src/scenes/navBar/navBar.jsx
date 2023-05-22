@@ -95,7 +95,7 @@ const NavBar = ()=>{
                             gap="3rem"
                             padding="0.1rem 1.5rem"
                         >
-                            <InputBase placeholder="Search..."   />
+                            <InputBase placeholder="Search Name..."   />
 
                             <IconButton>    
                                 <Search/>
@@ -118,10 +118,26 @@ const NavBar = ()=>{
                             <LightMode sx={{color:dark, fontSize:"25px"}} />
                         )}              
                     </IconButton>
-                    <Message  sx= {{fontSize: "25px"}} />
-                    <Notifications  sx= {{fontSize: "25px"}} />
+
+                    <Message  sx= {{ fontSize: "25px"}} />
+
+                    <Notifications  sx= {{fontSize: "25px"}}>
+                            {theme.palette.mode === "dark" ? (
+                                <DarkMode sx= {{
+                                        "&:hover":{
+                                            color: primaryLight,
+                                            cursor: "pointer",
+                                        },
+                                    }} />
+                            ):(
+                                <LightMode sx={{color:dark, fontSize:"25px"}} />
+                            )}        
+                    </Notifications> 
+                    
                     <Help  sx= {{fontSize: "25px"}} />
-                    <FormControl variant= "standard" value={fullName}>
+
+                    {/***Custom Drop-down To Show User Profile & Logout**/}
+                    <FormControl variant= "outlined" value={fullName}>
                             <Select
                                     value = {fullName}
                                     sx={{
@@ -143,14 +159,13 @@ const NavBar = ()=>{
                                     <Typography>{fullName}</Typography>
                                 </MenuItem>
 
-                                <MenuItem onClick={()=>dispatch(setLogout())}>Log Out</MenuItem>
-
-                                
-                            </Select>
+                                <MenuItem onClick={()=>dispatch(setLogout())}>Log Out</MenuItem>         
+                            </Select>                           
                     </FormControl>
                 </FlexBetween>
              ) 
             : (
+                
                 <IconButton 
                     onClick={()=> setIsMobileMenuToggled(!isMobileMenuToggled)}
                 > 
