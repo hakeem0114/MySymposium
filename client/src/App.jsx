@@ -20,6 +20,9 @@ function App() {
   const mode = useSelector((state)=> state.mode) 
   const theme = useMemo( ()=> createTheme(themeSettings(mode)), [mode]) //Store light/dark theme mode in cache
 
+  //Once a user has signed in & received userID & token, boolean =true
+  const isAuth = Boolean(useSelector((state)=> state.token)) 
+
   return (
     <div className='app'>
         <BrowserRouter>
@@ -28,8 +31,8 @@ function App() {
               
               <Routes>
                     <Route path="/MySymposium" element={ <LoginPage/> } />
-                    <Route path="/MySymposium/home" element={ <HomePage/> } />
-                    <Route path="/MySymposium/profile/:userId" element={ <ProfilePage/> } />
+                    <Route path="/MySymposium/home" element={ isAuth ? <HomePage/> : <Navigate to ='/'/> } />
+                    <Route path="/MySymposium/profile/:userId" element={isAuth ? <HomePage/> : <ProfilePage to ='/'/>  } />
               </Routes>
             </ThemeProvider>
         </BrowserRouter>

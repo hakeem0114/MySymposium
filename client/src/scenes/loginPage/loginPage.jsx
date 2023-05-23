@@ -43,6 +43,7 @@ const LoginPage = ()=>{
                                 fontWeight="450"
                                 sx={{marginBottom:"1.5rem"}}
                                 variant ='h5'
+                                align= 'center'
                         >          
                           
                          The Social App for Fellow dog moms, dads & lovers!
