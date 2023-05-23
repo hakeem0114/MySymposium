@@ -24,8 +24,7 @@ https://www.npmjs.com/package/yup
 React Router: Handling page routes in React
 Emotion: Helps write css inside react with a custom lint
     https://emotion.sh/docs/introduction
-Material UI/ Motion: React framework for responsive & expressive react styles & animations (Completely simplifies Css)
-All-in-one CSS for React
+Material UI/ Motion: React CSS framework for responsive & expressive react styles & animations (Completely simplifies Css)
 https://mui.com/material-ui/transitions/
 a. principles of motion in UI design 
 https://m2.material.io/design/motion/understanding-motion.html#principles
@@ -39,6 +38,7 @@ https://stackoverflow.com/questions/68675994/what-is-jsconfig-json
 
 
 2. Folder Layout using react best practices
+https://profy.dev/article/react-folder-structure
 *Naming conventions: Pascal, Camel, isComponent for booleans
 3. Use styled-components instead of master CSS like my portfolio
 https://styled-components.com/

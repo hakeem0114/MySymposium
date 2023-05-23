@@ -6,7 +6,7 @@ import { BrowserRouter,Navigate, Routes, Route } from "react-router-dom"
 import { useSelector } from "react-redux" //Extract properties from initialState redux object
 
 //Scenes Imports
-import { HomePage } from "./scenes/homePage/homePage"
+import  HomePage  from "./scenes/homePage/homePage"
 import { LoginPage } from "./scenes/loginPage/loginPage"
 import { ProfilePage } from "./scenes/profilePage/profilePage"
 

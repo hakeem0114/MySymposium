@@ -32,6 +32,9 @@ import{
     Close
 } from "@mui/icons-material"
 
+//React Icons Imports
+//import {SiDatadog} from 'react-icons/si'
+
 //Components Imports
 import FlexBetween from "../../components/FlexBetween"
 
@@ -86,6 +89,7 @@ const NavBar = ()=>{
                     >          
                         MySymposium
                     </Typography>
+                    
 
                     {/**Show Search Bar For Non-Mobile Screens**/}
                     {isNonMobileScreens && (

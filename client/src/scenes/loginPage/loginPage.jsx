@@ -3,7 +3,7 @@ import {Box, Typography, useTheme, useMediaQuery } from "@mui/material"
 import Form from './Form'
 
 
-
+//import Footer from './FooterWidget'
 
 const LoginPage = ()=>{
 
