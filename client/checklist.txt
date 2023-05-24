@@ -46,7 +46,10 @@ https://dev.to/stephencweiss/reusing-css-with-styled-components-3okn
 ***Turns out MUI has the same thing,use MUI instead of style-components
 https://mui.com/system/styled/ 
 
+**Done MVP
+
 4. Guest Login Button After finishing project
+5. Add in loginPage video
 
 
 
