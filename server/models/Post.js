@@ -26,7 +26,7 @@ const PostSchema = new mongoose.Schema({
     description: String,
     picturePath: String,
     userPicturePath: String,
-    likes: { //O(1) constant lookup for MAP instead of array "Map.has(#)"
+    likes: {
         type: Map,
         of: Boolean,
     },

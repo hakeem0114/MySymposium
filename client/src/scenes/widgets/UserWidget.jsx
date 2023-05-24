@@ -1,3 +1,5 @@
+ //Fix loading page on UserWidget's user profile before sucessful get req
+ 
  //React Imports
  import { useEffect, useState } from "react";
  import { useNavigate } from "react-router-dom";
@@ -16,7 +18,7 @@ import {
   import PetsIcon from '@mui/icons-material/Pets';
   import { Box, Typography, Divider, useTheme } from "@mui/material";
    //Profile Loading
-   import CircularProgress from "@mui/material/CircularProgress";
+   //import CircularProgress from "@mui/material/CircularProgress";
 
 
   //Image Components
@@ -36,7 +38,7 @@ import {
   const UserWidget = ({userId, picturePath})=>{
     
     //Loading
-    const [isFetching, setIsFetching] = useState(true); 
+    //const [isFetching, setIsFetching] = useState(true); 
 
     //Grab states & populate user profile
     const [user, setUser] = useState(null);
@@ -52,7 +54,7 @@ import {
 
     //GET API Call to server
     const getUser = async()=>{
-        const response = await fetch(`http://localhost:3001/users/home${userId}`,{
+        const response = await fetch(`http://localhost:3001/users/${userId}`,{
             method:'GET',
             headers:{Authorization: `Bearer ${token}`}
         })
@@ -61,20 +63,27 @@ import {
   }
     
   //Calls & Renders user profile after browser has finished rendering. 
-    useEffect(() => {
-        getUser();
-        setIsFetching(false);
-    }, []); 
+    // useEffect(() => {
+    //     getUser();
+    //     setIsFetching(false);
+    // }, []); 
     
     //Loading Widget
-    if ( !user && isFetching) {
-        return (
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <CircularProgress />
-          </Box>
-        );
-    }
+    // if ( !user && isFetching) {
+    //     return (
+    //       <Box sx={{ display: "flex", justifyContent: "center" }}>
+    //         <CircularProgress />
+    //       </Box>
+    //     );
+    // }
 
+    useEffect(() => {
+        getUser();
+      }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    
+      if (!user) {
+        return null;
+      }
 
     //Destructure user info after API call
     const{
@@ -95,7 +104,7 @@ import {
             <FlexBetween
                 gap="0.5rem"
                 paddingBottom="1rem"
-                onClick={() => navigate(`/profile/${userId}`)}
+                onClick={() => navigate(`/MySymposium/profile/${userId}`)}
             >
                 <FlexBetween gap="1rem">
                     <UserImage image={picturePath} />
@@ -127,11 +136,12 @@ import {
 
             {/* 2nd Section: Dog Info */}
             <Box padding=".8rem 0">
-                <Box display="flex" alignItems="center" gap="1rem" marginBottom="0.6rem">
-                    <LocationOnOutlined fontSize="large" sx={{ color: main }} />
-                    <Typography color={medium}>{dogBreed}</Typography>
+                <Box display="flex" alignItems="center" gap="1rem" marginBottom="0.6rem"
+                    marginLeft='0.3rem'
+                >
+                    <PetsIcon/> <Typography color={medium}>{dogBreed}</Typography>
                 </Box>
-                <PetsIcon/>
+                
             </Box>
 
             <Divider />

@@ -1,35 +1,32 @@
-//Handle user authorization 
-    //Hit API endpoints for verified users
+import jwt from "jsonwebtoken";
 
-import jwt  from 'jsonwebtoken'
-import  dotenv  from "dotenv"; 
+//Fixed the middleware using POSTMAN API
+//The reason was because of the spacing between the Bearer token for startWith
 
-dotenv.config(); //To use dotenv files
+/*
+Lots of sites includes chrome use this & require this
+The OAuth 2.0 Authorization Framework sets a number of other requirements to keep authorization secure, 
+for instance requiring the use of HTTPS/TLS.
 
-//Create custom middleware to verify token
-export const verifyToken = async(req, res, next) =>{
-    try{//Send req
 
-        //Let token's reqesu header be = "Authorization: Bearer"
-        let token = req.header("Authorization") 
+*/
 
-        if(!token){
-            return res.status(403).send("Access Denied!")
-        }
+export const verifyToken = async (req, res, next) => {
+  try {
+    let token = req.header("Authorization");
 
-        if(token.startWith("Bearer ")){
-            token = token.slice(7, token.length).trimLeft() 
-            //.trimLeft() removed white space from left of JWT
-        }
-
-        //Send verified token as part of JWT to browser
-        const verified  = jwt.verify(token, process.env.JWT_SECRET)
-        req.user = verified
-
-        next() //Process to next middlware
-
+    if (!token) {
+      return res.status(403).send("Access Denied");
     }
-    catch(err){
-        res.status(500).json({error: err.message})
+
+    if (token.startsWith("Bearer ")) {
+      token = token.slice(7, token.length).trimLeft();
     }
-}
+
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = verified;
+    next();
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

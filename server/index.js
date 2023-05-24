@@ -9,7 +9,7 @@ import express from "express"; //Manages routes
 import bodyParser from "body-parser"; //Process req body
 import  mongoose  from "mongoose"; //Document object model library for MongoDB
 import cors from "cors"; //Cross Origin Resource Sharing & requests
-import  dotenv  from "dotenv"; //Hide secret keys
+import  dotenv  from "dotenv"; //Hide secret keys (environment variables)
 import multer from "multer"; //Local file upload
 import helmet from "helmet"; //Request safety
 import morgan from "morgan"; //http request logger

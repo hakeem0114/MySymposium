@@ -82,6 +82,8 @@ export const login =  async(req, res)=>{
         //Send response to client (GET-sucess)
         res.status(200).json({token, user})
 
+        console.log('Logged In User')
+
     }
     catch(err){
         res.status(500).json({error: err.message})

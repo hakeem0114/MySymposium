@@ -47,7 +47,7 @@ import {
     const [image, setImage] = useState(null);
     const [post, setPost] = useState("");
 
-    //Get user auth data: id & tokens
+    //Get user auth data: id & tokens from server so we know who is posting
     const { _id } = useSelector((state) => state.user);
     const token = useSelector((state) => state.token);
 

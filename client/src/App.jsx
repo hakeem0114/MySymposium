@@ -6,7 +6,7 @@ import { BrowserRouter,Navigate, Routes, Route } from "react-router-dom"
 import { useSelector } from "react-redux" //Extract properties from initialState redux object
 
 //Scenes Imports
-import  HomePage  from "./scenes/homePage/homePage"
+import  { HomePage}  from "./scenes/homePage/homePage"
 import { LoginPage } from "./scenes/loginPage/loginPage"
 import { ProfilePage } from "./scenes/profilePage/profilePage"
 
@@ -24,20 +24,25 @@ function App() {
   const isAuth = Boolean(useSelector((state)=> state.token)) 
 
   return (
-    <div className='app'>
-        <BrowserRouter>
-            <ThemeProvider theme={theme}>
-              <CssBaseline/>
-              
-              <Routes>
-                    <Route path="/MySymposium" element={ <LoginPage/> } />
-                    <Route path="/MySymposium/home" element={ isAuth ? <HomePage/> : <Navigate to ='/'/> } />
-                    <Route path="/MySymposium/profile/:userId" element={isAuth ? <HomePage/> : <ProfilePage to ='/'/>  } />
-              </Routes>
-            </ThemeProvider>
-        </BrowserRouter>
+    <div className="app">
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Routes>
+            <Route path="/MySymposium" element={<LoginPage />} />
+            <Route
+              path="/MySymposium/home"
+              element={isAuth ? <HomePage /> : <Navigate to="/MySymposium" />}
+            />
+            <Route
+              path="/MySymposium/profile/:userId"
+              element={isAuth ? <ProfilePage /> : <Navigate to="/MySymposium" />}
+            />
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
 export default App

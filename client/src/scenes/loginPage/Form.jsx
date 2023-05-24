@@ -22,7 +22,7 @@ import {
 //import ImageIcon from '@mui/icons-material/Image';
 import PetsIcon from '@mui/icons-material/Pets';
 
-import { shadows } from '@mui/system';
+//import { shadows } from '@mui/system';
 
 
 //MUI components
@@ -117,7 +117,7 @@ const Form = () => {
           token: loggedIn.token,
         })
       );
-      navigate("/home");
+      navigate("/MySymposium/home");
     }
   };
 
@@ -174,22 +174,23 @@ const Form = () => {
                   label="Last Name"
                   onBlur={handleBlur}
                   onChange={handleChange}
+                  value={values.lastName}
+                  name="lastName"
+                  error={Boolean(touched.lastName) && Boolean(errors.lastName)}
+                  helperText={touched.lastName && errors.lastName}
+                  sx={{ gridColumn: "span 4" }}
+                />   
+
+                <TextField
+                  label="Dog Name or Breed"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
                   value={values.dogBreed}
                   name="dogBreed"
                   error={Boolean(touched.dogBreed) && Boolean(errors.dogBreed)}
                   helperText={touched.dogBreed && errors.dogBreed}
                   sx={{ gridColumn: "span 4" }}
                 />
-                <TextField
-                  label="Dog Name or Breed"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.lastName}
-                  name="lastName"
-                  error={Boolean(touched.lastName) && Boolean(errors.lastName)}
-                  helperText={touched.lastName && errors.lastName}
-                  sx={{ gridColumn: "span 4" }}
-                />           
     
                 <TextField
                   label="Location"

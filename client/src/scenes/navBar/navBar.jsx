@@ -64,8 +64,9 @@ const NavBar = ()=>{
     const alt = theme.palette.background.alt 
 
     //User Info
-    //const fullName = `${user.firstName} ${user.lastName}`
-    const fullName = `Test Name`
+    //const fullName = `Test Name`
+    const fullName = `${user.firstName} ${user.lastName}`
+    
 
 
     return(
