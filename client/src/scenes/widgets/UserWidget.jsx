@@ -53,14 +53,14 @@ import {
     const medium = palette.neutral.medium;
 
     //GET API Call to server
-    const getUser = async()=>{
-        const response = await fetch(`http://localhost:3001/users/${userId}`,{
-            method:'GET',
-            headers:{Authorization: `Bearer ${token}`}
-        })
+    const getUser = async () => {
+        const response = await fetch(`http://localhost:3001/users/${userId}`, {
+          method: "GET",
+          headers: { Authorization: `Bearer ${token}` },
+        });
         const data = await response.json();
-        setUser(data)
-  }
+        setUser(data);
+      };
     
   //Calls & Renders user profile after browser has finished rendering. 
     // useEffect(() => {
