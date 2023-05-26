@@ -51,8 +51,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
         <UserImage image={userPicturePath} size="55px" />
         <Box
           onClick={() => {
-            navigate(`MySymposium/profile/${friendId}`);
-            navigate(0);
+            navigate(`/MySymposium/profile/${friendId}`, { replace: true })
           }}
         >
           <Typography

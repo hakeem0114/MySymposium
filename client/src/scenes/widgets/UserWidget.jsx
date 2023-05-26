@@ -105,10 +105,8 @@ import {
                 gap="0.5rem"
                 paddingBottom="1rem"
                 onClick={() => {
+                    navigate(`/MySymposium/profile/${userId}`, { replace: true })
 
-                    navigate(`/profile/${userId}`);
-
-                    navigate(0);
                   }}
                 //onClick={() => navigate(`/profile/${userId}`)}
             >
@@ -130,7 +128,7 @@ import {
                             </Typography>
 
                             <Typography color={medium}>
-                                {friends.length} connections 
+                                { (friends.length == 0)? `Find a friend`:(friends.length == 1)?`${friends.length} connection`:`${friends.length} connections`} 
                             </Typography>
                         </Box>
                 </FlexBetween>
