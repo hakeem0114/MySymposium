@@ -19,7 +19,7 @@ router.get("/:id/friends", verifyToken, getUserFriends)
 
 
 /***PATCH (UPDATE)**/
-router.patch('/:id/friendId', verifyToken, addRemoveFriend)
+router.patch('/:id/:friendId', verifyToken, addRemoveFriend)
 
 
 

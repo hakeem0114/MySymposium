@@ -44,6 +44,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     dispatch(setFriends({ friends: data }));
   };
 
+  //navigate(0); refreshes page after opening new profile or useEffect & re-render page
   return (
     <FlexBetween>
       <FlexBetween gap="1rem">

@@ -46,8 +46,8 @@ const UserSchema = new mongoose.Schema({
     viewedProfile: Number,
     impressions: Number
     
-}, {timestamps: true})
+}, {timestamps: true});
 
 const User = mongoose.model('User', UserSchema) //user(s) in MongoDB collection
 
-export default User
+export default User;

@@ -104,7 +104,13 @@ import {
             <FlexBetween
                 gap="0.5rem"
                 paddingBottom="1rem"
-                onClick={() => navigate(`/MySymposium/profile/${userId}`)}
+                onClick={() => {
+
+                    navigate(`/profile/${userId}`);
+
+                    navigate(0);
+                  }}
+                //onClick={() => navigate(`/profile/${userId}`)}
             >
                 <FlexBetween gap="1rem">
                     <UserImage image={picturePath} />

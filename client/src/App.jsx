@@ -35,7 +35,7 @@ function App() {
               element={isAuth ? <HomePage /> : <Navigate to="/MySymposium" />}
             />
             <Route
-              path="/MySymposium/profile/:userId"
+              path="/MySymposium/profile/:userId"      
               element={isAuth ? <ProfilePage /> : <Navigate to="/MySymposium" />}
             />
           </Routes>

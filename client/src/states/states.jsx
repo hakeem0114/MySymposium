@@ -32,13 +32,13 @@ export const  authSlice = createSlice({
         setFriends: (state, action)=>{
             if(state.user){
                 //Store user friends in new state if they exist in database
-                state.user.friends = action.payload.friends
+                state.user.friends = action.payload.friends;
             }else{
-                console.log("User Friends DNE")
+                console.error("User Friends DNE")
             }
         },
         setPosts: (state, action)=>{
-            state.posts = action.payload.posts
+            state.posts = action.payload.posts;
         },
         setPost:(state, action)=>{
             const  updatedPosts = state.posts.map((post)=>{
@@ -46,7 +46,7 @@ export const  authSlice = createSlice({
 
                 return post
             })
-            state.posts = updatedPosts
+            state.posts = updatedPosts;
         }
 
     }
