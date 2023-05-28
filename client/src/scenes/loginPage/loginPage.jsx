@@ -15,8 +15,9 @@ const LoginPage = ()=>{
 
     //Main Back Image
     //const backImage = '../../../public/backImage.jpg'
-    const backImage = '/public/backImage.jpg'
-
+    //const backImage = '/public/backImage.jpg'
+    const backImage = '../../../public/assets/backImage.jpg'
+    
     return <Box
                 sx={{
                     backgroundImage: `url(${backImage})`,
