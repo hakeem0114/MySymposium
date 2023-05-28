@@ -37,6 +37,8 @@ import * as yup from "yup" //Import everything
 
 
 /*****YUP VALIDATION SCHEMA***/
+
+//Registration Page
 const registerSchema = yup.object().shape({
     firstName: yup.string().required("required"),
     lastName: yup.string().required("required"),
@@ -48,6 +50,8 @@ const registerSchema = yup.object().shape({
     picture: yup.string().required("required"),
 })
 
+
+//Login Page
 const loginSchema = yup.object().shape({
     email: yup.string().email("must be a valid email").required("required"),
     password:  yup.string().min(5, 'must be at least 5 characters long').required("required"),
@@ -137,8 +141,6 @@ const Form = () => {
       validationSchema={isLogin ? loginSchema : registerSchema}
 
     >
-
-
 
       {({
         values,
@@ -277,6 +279,7 @@ const Form = () => {
               </>
             )}
 
+            
             <TextField
               label="Email"
               onBlur={handleBlur}
