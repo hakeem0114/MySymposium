@@ -16,7 +16,7 @@ const LoginPage = ()=>{
     //Main Back Image
     //const backImage = '../../../public/backImage.jpg'
     //const backImage = '/public/backImage.jpg'
-    const backImage = '../../../public/assets/backImage.jpg'
+    const backImage = '../../../dist/assets/homeback.jpg'
     
     return <Box
                 sx={{

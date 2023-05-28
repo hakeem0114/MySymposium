@@ -67,7 +67,8 @@ const NavBar = ()=>{
     //const fullName = `Test Name`
     const fullName = `${user.firstName} ${user.lastName}`
     
-
+    //Default theme = dark
+    theme.palette.mode === "dark" 
 
     return(
         <FlexBetween  padding="1rem 6%" background={alt} >
