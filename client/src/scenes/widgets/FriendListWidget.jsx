@@ -26,7 +26,7 @@ const FriendListWidget = ({ userId }) => {
 
   const getFriends = async () => {
     const response = await fetch(
-      `https://mysymposium-server.onrender.com//users/${userId}/friends`,
+      `https://mysymposium-server.onrender.com/users/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

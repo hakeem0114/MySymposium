@@ -54,7 +54,7 @@ import {
 
     //GET API Call to server
     const getUser = async () => {
-        const response = await fetch(`https://mysymposium-server.onrender.com//users/${userId}`, {
+        const response = await fetch(`https://mysymposium-server.onrender.com/users/${userId}`, {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });

@@ -22,7 +22,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   
     //GET API Call for ALL POSTS
     const getPosts = async () => {
-      const response = await fetch("https://mysymposium-server.onrender.com//posts", {
+      const response = await fetch("https://mysymposium-server.onrender.com/posts", {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -33,7 +33,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     //GET API Call for User Only Posts
     const getUserPosts = async () => {
       const response = await fetch(
-        `https://mysymposium-server.onrender.com//posts/${userId}/posts`,
+        `https://mysymposium-server.onrender.com/posts/${userId}/posts`,
         {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
