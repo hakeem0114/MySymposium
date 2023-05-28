@@ -14,7 +14,8 @@ const LoginPage = ()=>{
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)")
 
     //Main Back Image
-    const backImage = '../../../public/backImage.jpg'
+    //const backImage = '../../../public/backImage.jpg'
+    const backImage = '/public/backImage.jpg'
 
     return <Box
                 sx={{
