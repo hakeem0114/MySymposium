@@ -61,7 +61,7 @@ const LoginPage = ()=>{
                                 align= 'center'
                         >          
                           
-                         The Social App for Fellow dog moms, dads & lovers!
+                         The Social App for fellow dog moms, dads & lovers!
                         </Typography>  
 
                         <Form>  

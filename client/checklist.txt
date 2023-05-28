@@ -52,7 +52,7 @@ https://mui.com/system/styled/
 5. Add in loginPage image
 6. Fix like bug
   -Fixed add/remove friend bug
-7. Fixed profile page, try using Redirect instead of useNavigate
+7. Fixed profile page, try using Redirect instead of useNavigate. Found a solution with Navigate
 8. Fix responsive design for mobile
 9. Deploy on Sat 
 
