@@ -49,12 +49,12 @@ https://mui.com/system/styled/
 **Done MVP
 
 4. Guest Login Button After finishing project
-5. Add in loginPage video
+5. Add in loginPage image
 6. Fix like bug
   -Fixed add/remove friend bug
 7. Fixed profile page, try using Redirect instead of useNavigate
-8. Add guest login & update login page
-9. Deploy on Friday 
+8. Fix responsive design for mobile
+9. Deploy on Sat 
 
 
 

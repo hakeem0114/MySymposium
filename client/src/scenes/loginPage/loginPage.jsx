@@ -13,8 +13,21 @@ const LoginPage = ()=>{
     //Desktop screen media query
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)")
 
-    return <Box> 
-                {/**Desktop Login Page Background Box**/}  
+    //Main Back Image
+    const backImage = '../../../public/backImage.jpg'
+
+    return <Box
+                sx={{
+                    backgroundImage: `url(${backImage})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    width: "100%",
+                    height: "100%",
+                    
+                }}
+            > 
+                {/**Header At Top Of Login Page**/}  
                 <Box  
                     width="100%" 
                     backgroundColor={theme.palette.background.alt} 
@@ -30,12 +43,14 @@ const LoginPage = ()=>{
                         </Typography>    
                  </Box> 
 
-                {/**Mobile Login Page BackGround based on media query**/}  
+                {/**Mobile & Destop Login Page Form Size based on media query**/}  
                  <Box
-                    width={isNonMobileScreens ? "47%": "90%"}
+                    width={isNonMobileScreens ? "30%": "90%"}
+                    
                     margin="2rem auto"
                     padding = "2rem"
                     borderRadius="1.5rem"
+                    
 
                     backgroundColor = {theme.palette.background.alt}
                  >

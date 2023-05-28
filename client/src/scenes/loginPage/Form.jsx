@@ -126,12 +126,20 @@ const Form = () => {
     if (isRegister) await register(values, onSubmitProps);
   };
 
+      //Main Back Image
+     // const backImage = '../../../public/backImage.jpg'
+
+
   return (
     <Formik
       onSubmit={handleFormSubmit}
       initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
       validationSchema={isLogin ? loginSchema : registerSchema}
+
     >
+
+
+
       {({
         values,
         errors,
@@ -144,20 +152,22 @@ const Form = () => {
       }) => (
         <form onSubmit={handleSubmit}>
 
+
+
             {/**Submission Formik Form Css*/}
           <Box
             display="grid"
             gap="30px"
-            gridTemplateColumns="repeat(2, minmax(0, 1.2fr))"
+            gridTemplateColumns="repeat(8, minmax(0, 1.2fr))"
             boxShadow= '10'
-            sx={{
-                
-              "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-            }}
+            
+          
           >
             {/**If Form's state is on the register page, display the ff:**/}
+
             {isRegister && (
               <>
+                    
                 <TextField
                   label="First Name"
                   onBlur={handleBlur}
@@ -212,15 +222,22 @@ const Form = () => {
                     Boolean(touched.occupation) && Boolean(errors.occupation)
                   }
                   helperText={touched.occupation && errors.occupation}
-                  sx={{ gridColumn: "span 4" }}
+                  
+                  sx={{
+                    gridColumn: "span 8",
+                    "& > div": { gridColumn: isNonMobile ? "undefined" : "span 2" },
+                  }}
                 />
 
                 {/**Profile Image Upload Using React DropZone*/}
                 <Box
-                  gridColumn="span 4"
+                  sx={{
+                    gridColumn: "span 8",
+                    "& > div": { gridColumn: isNonMobile ? "undefined" : "span 2" },
+                  }}
                   border={`2px solid ${palette.neutral.medium}`}
                   borderRadius="5px"
-                  padding="1rem"
+                  padding=".5rem"
                 >
                   <Dropzone
                     acceptedFiles='.jpeg, .jpeg, .png'
@@ -244,6 +261,7 @@ const Form = () => {
                       >
                         {/**Wait for picture to be added to dropzone**/}
                         <input {...getInputProps()} />
+
                         {!values.picture ? (
                            <p> <i>Upload Photo</i> </p>
                         ) : (
@@ -281,6 +299,8 @@ const Form = () => {
               sx={{ gridColumn: "span 4" }}
             />
           </Box>
+
+                         
 
           {/**REST OF THE FORM WITH LOGIN & SIGNUP BUTTONS*/}
           <Box>
@@ -320,6 +340,8 @@ const Form = () => {
                 : "Already have an account. Login here!"}
             </Typography>
           </Box>
+
+          
         </form>
       )}
     </Formik>
