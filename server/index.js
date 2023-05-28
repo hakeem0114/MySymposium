@@ -72,7 +72,8 @@ const app  = express()
     //CORS
     //Remove any friction when accessing resourcing from client to back-end
     app.use(cors({
-        origin: '*'
+        origin: '*',
+        methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
     }))
 
     //Sets directory of stored assets locally
