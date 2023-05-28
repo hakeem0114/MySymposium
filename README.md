@@ -1,6 +1,7 @@
 # MySymposium
 Full Stack MERN Social Media Application 
 ![Home](./client/public/home.png "Home")
+![Home2](./client/public/home2.png "Home2")
 
 # ERD Diagrams
 ![ERD](./server/public/erd.jpg "ERD")
