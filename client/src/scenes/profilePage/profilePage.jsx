@@ -28,7 +28,7 @@ const ProfilePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width:600px)");
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    const response = await fetch(`https://mysymposium-server.onrender.com//users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

@@ -71,7 +71,9 @@ const app  = express()
 
     //CORS
     //Remove any friction when accessing resourcing from client to back-end
-    app.use(cors({}))
+    app.use(cors({
+        origin: '*'
+    }))
 
     //Sets directory of stored assets locally
     //**after building app, refrator to store all assets on firebase**//
