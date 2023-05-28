@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 //Redux Import
 import { useDispatch } from "react-redux";
-import { setFriends, setLogin } from "../../states/states";
+import { setLogin } from "../../states/states";
 
 //React Dropzone Import
 import Dropzone from "react-dropzone";
@@ -13,7 +13,6 @@ import Dropzone from "react-dropzone";
 import {
     Box, 
     Button, 
-    InputBase, 
     TextField, 
     Typography, 
     useTheme, 
@@ -57,6 +56,8 @@ const loginSchema = yup.object().shape({
     password:  yup.string().min(5, 'must be at least 5 characters long').required("required"),
 })
 
+
+/****YUP VALIDATION SCHEMA***/
 const initialValuesRegister = {
   firstName: "",
   lastName: "",
@@ -73,38 +74,60 @@ const initialValuesLogin = {
   password: "",
 };   
 
+
+/***FORMIT FORM****/
 const Form = () => {
+
+  //Saved states
   const [pageType, setPageType] = useState("login");
-  const { palette } = useTheme();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const isNonMobile = useMediaQuery("(min-width:600px)");
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
+  //const isGuest = pageType === "guest";
 
+  //Change States
+  const dispatch = useDispatch();
+
+  //Form themes
+  const { palette } = useTheme();
+
+  //React router
+  const navigate = useNavigate();
+
+  //Media Queries
+  const isNonMobile = useMediaQuery("(min-width:600px)");
+
+
+
+  //Register POST req
   const register = async (values, onSubmitProps) => {
-    // this allows us to send form info with image
-    const formData = new FormData();
-    for (let value in values) {
-      formData.append(value, values[value]);
-    }
-    formData.append("picturePath", values.picture.name);
-
-    const savedUserResponse = await fetch(
-      "http://localhost:3001/auth/register",
-      {
-        method: "POST",
-        body: formData,
+    
+      // this allows us to send form info with image
+      const formData = new FormData();
+      
+      for (let value in values) {
+        formData.append(value, values[value]);
       }
-    );
-    const savedUser = await savedUserResponse.json();
-    onSubmitProps.resetForm();
 
-    if (savedUser) {
-      setPageType("login");
-    }
+      formData.append("picturePath", values.picture.name);
+
+      const savedUserResponse = await fetch(
+        "http://localhost:3001/auth/register",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const savedUser = await savedUserResponse.json();
+      onSubmitProps.resetForm();
+
+      if (savedUser) {
+        setPageType("login");
+      }
   };
 
+
+  //Login POST req
   const login = async (values, onSubmitProps) => {
     const loggedInResponse = await fetch("http://localhost:3001/auth/login", 
     {
@@ -125,13 +148,18 @@ const Form = () => {
     }
   };
 
+  //Handle formik on submit
   const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
     if (isRegister) await register(values, onSubmitProps);
   };
 
-      //Main Back Image
-     // const backImage = '../../../public/backImage.jpg'
+  /***GUEST***/
+  const guestEmail = import.meta.env.VITE_GUEST_EMAIL
+  const guestPassword = import.meta.env.VITE_GUEST_PASSWORD
+
+  //Guest Login
+  //const isGuest = login(guestEmail, guestPassword)
 
 
   return (
@@ -159,11 +187,9 @@ const Form = () => {
             {/**Submission Formik Form Css*/}
           <Box
             display="grid"
-            gap="30px"
+            gap="10px"
             gridTemplateColumns="repeat(8, minmax(0, 1.2fr))"
             boxShadow= '10'
-            
-          
           >
             {/**If Form's state is on the register page, display the ff:**/}
 
@@ -305,13 +331,13 @@ const Form = () => {
 
                          
 
-          {/**REST OF THE FORM WITH LOGIN & SIGNUP BUTTONS*/}
+          {/**LOGIN & SIGNUP BUTTONS*/}
           <Box>
             <Button
               fullWidth
               type="submit"
               sx={{
-                margin: "2rem 0",
+                margin: "1rem 0",
                 padding: "1rem",
                 backgroundColor: palette.primary.main,
                 color: palette.background.alt,
@@ -321,25 +347,45 @@ const Form = () => {
               {isLogin ? "LOGIN" : "SIGNUP"}
             </Button>
 
-            <Typography
-              onClick={() => {
-                {/**Update form state*/}
-                setPageType(isLogin ? "register" : "login");
-                resetForm(); {/**Clean Up Past User Inputs*/}
-              }}
+
+            {/**GUEST LOGIN BUTTONS*/}
+            <Button
+              fullWidth
+              type="submit"
               sx={{
-                
-                color: palette.primary.main,
-                "&:hover": {
-                  cursor: "pointer",
-                  color: palette.primary.light,
-                  boxShadow: 10,
-                },
+                padding: "1rem",
+                backgroundColor: palette.primary.main,
+                color: palette.background.alt,
+                "&:hover": { color: palette.primary.main , boxShadow: 5 },
               }}
+   
+              onClick={()=> login(values.email=guestEmail,values.password=guestPassword )}
+            >  
+              {"GUEST LOGIN" }
+              
+            </Button>
+
+
+            <Typography
+                onClick={() => {
+                  {/**Update form state*/}
+                  setPageType(isLogin ? "register" : "login");
+                  resetForm(); {/**Clean Up Past User Inputs*/}
+                }}
+                
+                sx={{
+                  mt: ".25rem",
+                  color: palette.primary.main,
+                  "&:hover": {
+                    cursor: "pointer",
+                    color: palette.primary.light,
+                    boxShadow: 10,
+                  },
+                }}
             >
                 {/**Conditional comments for login & signup forms**/}
               {isLogin
-                ?  `Join the dogmmunity here!.`
+                ?  `Join the dogmmunity here!`
                 : "Already have an account. Login here!"}
             </Typography>
           </Box>
