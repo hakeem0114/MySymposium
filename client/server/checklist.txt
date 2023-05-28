@@ -1,0 +1,11 @@
+1. Install dependencies & middleware
+2. Organize folders
+3. Rough Data Models for Mongoose (made using draw.io)
+4. Node Auth & Authorization with JWT & Bycrypt
+5. Express Routes with MVC
+6. User get & post request.
+7. Test with Faker.js 
+*Ended up using fake manual data as a start.
+* needed to make mongoose IDs for each user
+8. Start Client
+

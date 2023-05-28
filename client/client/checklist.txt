@@ -1,0 +1,61 @@
+1. Started client 
+**Setup**
+REDUX: React state management tool
+Redux toolkit: Redux wrapper to make it easier to implement (create react app for react states)
+https://redux-toolkit.js.org/introduction/getting-started
+
+Redux Persist: Selectively store the state into local storage 
+    Save user & token info in to the local storage so, when user closes the tab & re-opens the tab, they still have their JWTs
+https://github.com/rt2zz/redux-persist
+
+
+React Dropzone: Handles file upload & handling from client to server
+https://www.npmjs.com/package/react-dropzone
+
+Dotenv: Handle environment variables
+Formik: Form handling
+https://formik.org/docs/examples/basic
+https://formik.org/docs/overview
+https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData
+
+Yup: Validation
+https://www.npmjs.com/package/yup
+
+React Router: Handling page routes in React
+Emotion: Helps write css inside react with a custom lint
+    https://emotion.sh/docs/introduction
+Material UI/ Motion: React CSS framework for responsive & expressive react styles & animations (Completely simplifies Css)
+https://mui.com/material-ui/transitions/
+a. principles of motion in UI design 
+https://m2.material.io/design/motion/understanding-motion.html#principles
+b. https://github.com/mui/material-ui/tree/master/examples/material-via-cdn
+https://github.com/mui/material-ui/tree/master/examples/material-vite/src
+template to create themes. 
+c. CssBaseline for CSS Reset. Resets Css & reapplies styles to make it consistent across all browsers
+
+jsconfig.js: To make src folder the base directory when importing. Helps intellisense
+https://stackoverflow.com/questions/68675994/what-is-jsconfig-json
+
+
+2. Folder Layout using react best practices
+https://profy.dev/article/react-folder-structure
+*Naming conventions: Pascal, Camel, isComponent for booleans
+3. Use styled-components instead of master CSS like my portfolio
+https://styled-components.com/
+https://dev.to/stephencweiss/reusing-css-with-styled-components-3okn
+***Turns out MUI has the same thing,use MUI instead of style-components
+https://mui.com/system/styled/ 
+
+**Done MVP
+
+4. Guest Login Button After finishing project
+5. Add in loginPage image
+6. Fix like bug
+  -Fixed add/remove friend bug
+7. Fixed profile page, try using Redirect instead of useNavigate. Found a solution with Navigate
+8. Fix responsive design for mobile
+9. Deploy on Sat 
+
+
+
+
