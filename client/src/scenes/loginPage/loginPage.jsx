@@ -2,6 +2,8 @@
 import {Box, Typography, useTheme, useMediaQuery } from "@mui/material"
 import Form from './Form'
 
+//Import login css file to fix login backgroud
+import './loginPage.css'
 
 //import Footer from './FooterWidget'
 
@@ -16,11 +18,11 @@ const LoginPage = ()=>{
     //Main Back Image
     //const backImage = '../../../public/backImage.jpg'
     //const backImage = '/public/backImage.jpg'
-    const backImage = '/homeback.jpg'
+    //const backImage = '/homeback.jpg'
     
-    return <Box
+    return <Box className='backImage'
                 sx={{
-                    backgroundImage: `url(${backImage})`,
+                    // backgroundImage: `url(${backImage})`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
