@@ -49,7 +49,7 @@ const LoginPage = ()=>{
 
                 {/**Mobile & Destop Login Page Form Size based on media query**/}  
                  <Box
-                    width={isNonMobileScreens ? "30%": "90%"}
+                    width={isNonMobileScreens ? "30%": "70%"}
                     
                     margin="2rem auto"
                     padding = "2rem"

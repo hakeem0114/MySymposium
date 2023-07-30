@@ -195,7 +195,7 @@ import {
 
                     <FlexBetween gap="1rem" mb="0.5rem">
                         <FlexBetween gap="1rem">
-                            <img src="../../../public/assets/instagram.gif" alt="insta" />
+                            <img src="../../../src/assets/instagram.gif" alt="insta" />
                             <Box>
                                 <Typography color={main} fontWeight="500">
                                     Instagram
@@ -207,7 +207,7 @@ import {
 
                     <FlexBetween gap="1rem" mb="0.5rem">
                         <FlexBetween gap="1rem">
-                            <img src="../../../public/assets/linkedin.gif" alt="LinkedIn" />
+                            <img src="../../../src/assets/linkedin.gif" alt="LinkedIn" />
                             <Box>
                                 <Typography color={main} fontWeight="500">
                                     LinkedIn
@@ -219,7 +219,7 @@ import {
 
                     <FlexBetween gap="1rem" mb="0.5rem">
                         <FlexBetween gap="1rem">
-                            <img src="../../../public/assets/twitter.gif" alt="bird app" />
+                            <img src="../../../src/assets/twitter.gif" alt="bird app" />
                             <Box>
                                 <Typography color={main} fontWeight="500">
                                    Twitter

@@ -154,3 +154,6 @@ out
 .yarn/install-state.gz
 .pnp.*
 >>>>>>> 4f9834a4879f2405de53697133ae616096a78972
+
+# checklist
+checklist.txt
