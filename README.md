@@ -2,16 +2,16 @@
 Full Stack MERN Social Media Application for dog owners 
 (Facebook Clone)
 
-![Home](./client/src/assets/home.png "Home")
+![Home](./client/public/assets/home.png "Home")
 - Quick Guest login available for recruiters
 
 
 ## Client
 
 ### Login/Signup & HomePage
-![Login](./client/src/assets/login.png "Login")
-![signup](./client/src/assets/signup.png "signup")
-![Home2](./client/src/assets/home2.png "Home2")
+![Login](./client/public/assets/login.png "Login")
+![signup](./client/public/assets/signup.png "signup")
+![Home2](./client/public/assets/home2.png "Home2")
 ```
 Import attachments with React Dropzone
 ```
